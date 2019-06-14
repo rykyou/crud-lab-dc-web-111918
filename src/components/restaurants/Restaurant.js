@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import ReviewsContainer from '../../containers/ReviewsContainer'
 
 class Restaurant extends Component {
-
+  handleDeleteRestaurant = (id) => {
+    this.props.deleteRestaurant(id)
+  }
 
   render() {
     const { restaurant } = this.props;
@@ -10,8 +12,8 @@ class Restaurant extends Component {
     return (
       <div>
         <li>
-          {restaurant.text}
-          <button> X </button>
+          {restaurant.name}
+          <button onClick={() => this.handleDeleteRestaurant(restaurant.id)}> X </button>
           <ReviewsContainer restaurant={restaurant}/>
         </li>
       </div>
